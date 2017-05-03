@@ -1,0 +1,37 @@
+<ion-view>
+  <ion-header-bar class="bar-dark item-input-inset">
+    <button class="button button-icon icon ion-navicon"></button>
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="搜索音乐">
+    </label>
+    <button class="button button-icon icon ion-navicon"></button>
+  </ion-header-bar>
+<!--<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+  <ion-slide>
+
+  </ion-slide>
+</ion-slide-box>-->
+
+
+
+  <ion-tabs class="tabs-positive tabs-top  tabs-striped">
+    <ion-tab title="个性推荐" href="#/tab/discover/tabs2/recomm" >
+      <ion-nav-view name="tab-recomm" animation="slide-left-right"></ion-nav-view>
+
+    </ion-tab>
+    <ion-tab title="歌单" href="#/tab/discover/tabs2/sheet">
+      <ion-nav-view name="tab-sheet" animation="slide-left-right"></ion-nav-view>
+
+    </ion-tab>
+    <ion-tab title="主播电台"  href="#/tab/discover/tabs2/station">
+      <ion-nav-view name="tab-station" animation="slide-left-right"></ion-nav-view>
+
+    </ion-tab>
+    <ion-tab title="排行榜" href="#/tab/discover/tabs2/ranking">
+      <ion-nav-view name="tab-ranking"animation="slide-left-right"></ion-nav-view>
+
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
+

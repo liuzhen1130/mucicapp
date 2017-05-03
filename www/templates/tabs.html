@@ -1,0 +1,43 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+
+<ion-tabs class="tabs-dark tabs-icon-top">
+ <!-- 发现音乐 -->
+  <ion-tab title="发现音乐" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/discover">
+    <ion-nav-view name="tab-discover"></ion-nav-view>
+  </ion-tab>
+  <!--我的音乐-->
+  <ion-tab title="我的音乐" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/mymusic">
+    <ion-nav-view name="tab-mymusic"></ion-nav-view>
+  </ion-tab>
+
+  <!--账户-->
+  <ion-tab title="账户" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>
+
+<!--
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+  &lt;!&ndash; Dashboard Tab &ndash;&gt;
+  <ion-tab title="Status" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/dash">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
+  </ion-tab>
+
+  &lt;!&ndash; Chats Tab &ndash;&gt;
+  <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chats">
+    <ion-nav-view name="tab-chats"></ion-nav-view>
+  </ion-tab>
+
+  &lt;!&ndash; Account Tab &ndash;&gt;
+  <ion-tab title="Account" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>-->

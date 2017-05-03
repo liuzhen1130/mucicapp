@@ -1,0 +1,24 @@
+<ion-view view-title="歌单">
+
+  <ion-content class="padding no-header" style="padding:0;top:50px !important; bottom: 90px !important;">
+    <div class="sub-img">
+      <img src="img/adam.jpg">
+    </div>
+    <div class="sheet-all">
+      <a class="button button-outline button-positive" nav-direction="forward" href="#/sheet-page">全部歌单</a> <span>欧美&nbsp;|&nbsp;民谣&nbsp;|&nbsp;古风</span>
+    </div>
+    <div class="sheet-main">
+      <div class="all-sheet" >
+        <div class="all-col" ng-repeat="item in playList">
+          <div ng-click="">
+            <img ng-src="{{item.imgUrl}}">
+            <span class="sheet-author" ng-bind="item.author"></span>
+            <span class="sheet-total" ng-bind="item.playNum"></span>
+          </div>
+          <p ng-bind="item.desc"></p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+
