@@ -1,0 +1,61 @@
+<ion-view view-title="歌单详情"  >
+
+  <div class="blur-bg" style="background-image:url({{sheetDetail.coverImgUrll}}); ">
+  </div>
+    <ion-header-bar class="bar" style="background: none">
+      <a ng-click="goSheetPage()"><</a>
+      <h1 class="title">歌单</h1>
+    </ion-header-bar>
+
+    <ion-content  class="has-header" style="bottom: 60px !important;background: none">
+      <div class="Detail" >
+        <div class="Detail-text">
+          <img class="sheet-img" ng-src="{{sheetDetail.coverImgUrll}}">
+          <h4 ng-bind="sheetDetail.playListName"></h4>
+          <p><img src="{{sheetDetail.avatarUrl}}"><span ng-bind="sheetDetail.author"></span></p>
+        </div>
+        <div class="Detail-but">
+          <a><i class="icon ion-ios-plus-outline"></i><p ng-bind="sheetDetail.subscribedCount"></p></a>
+          <a><i class="icon ion-ios-paper-outline"></i><p ng-bind="sheetDetail.commentCount"></p></a>
+          <a><i class="icon ion-ios-redo-outline" ></i><p ng-bind="sheetDetail.shareCount"></p></a>
+          <a><i class="icon ion-ios-cloud-download-outline"></i><p>下载</p></a>
+        </div>
+      </div>
+      <div class="playList">
+        <div class="playList-title" >
+           <i class="icon ion-android-arrow-dropright-circle"></i> <span>播放全部</span>(共40首)
+        </div>
+        <ul >
+          <li ng-repeat="item in sheetDetail.songDetails">
+            <span class="num">{{$index + 1}}</span>
+            <div class="playList-detail">
+              <span ng-bind="item.name"></span>
+              <p>
+                <span ng-repeat="i in item.singer"><i ng-bind="i"></i><i ng-if="$index<item.singer.length-1 && $index>=0">/</i></span>
+                -<span ng-bind="item.albumName"></span>
+              </p>
+              <div class="tool-but"><i class="icon ion-ios-more"></i></div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </ion-content>
+
+
+  <div class="tabs tabs-icon-top bottom-tab">
+    <a class="tab-item tab-item-active" href="#/recommend">
+      <i class="icon ion-home"></i>
+      发现音乐
+    </a>
+    <a class="tab-item" href="#/myMusic">
+      <i class="icon ion-star"></i>
+      我的音乐
+    </a>
+    <a class="tab-item" href="#/user">
+      <i class="icon ion-gear-a"></i>
+      账户
+    </a>
+  </div>
+</ion-view>
+

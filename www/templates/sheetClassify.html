@@ -1,6 +1,6 @@
 <ion-view view-title="sheet-page" >
   <ion-header-bar class="bg">
-  <a class="button" ng-click="goback()">取消</a>  <h1 class="title">筛选歌单</h1>
+  <a class="button" ng-click="goSheetPage()">取消</a>  <h1 class="title">筛选歌单</h1>
   </ion-header-bar>
   <ion-content class="has-header" style="background: #eee">
     <div class="all-sheet-but">
@@ -12,7 +12,7 @@
       <div class="sheet-list" ng-repeat="item in categoryList">
         <span class="sheet-list-title" ng-bind="item.categoryName"></span>
         <div ng-repeat="i in item.childList">
-          <span  ui-sref="tab.discover.tabs2.sheet({name:i.categoryName})"  ng-bind="i.categoryName | replaceAmp" ng-class="{'sort-hot': i.categoryName == '华语'||i.categoryName == '流行'||i.categoryName == '摇滚'||i.categoryName == '乡村'||i.categoryName == '古风'
+          <span ui-sref="sheet({name:i.categoryName})" ng-bind="i.categoryName | replaceAmp" ng-class="{'sort-hot': i.categoryName == '华语'||i.categoryName == '流行'||i.categoryName == '摇滚'||i.categoryName == '乡村'||i.categoryName == '古风'
           ||i.categoryName == '学习'||i.categoryName == '怀旧'||i.categoryName == '影视原声'||i.categoryName == 'ACG'}"></span>
         </div>
       </div>

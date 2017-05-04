@@ -19,13 +19,11 @@ angular.module('myApp.service',[])
       method:'GET'
     }).then(function successCallback(response) {
       opt.callback(response.data);
-      console.log('service')
     }, function errorCallback(response) {
       // 请求失败执行代码
     })
   }
 })
-/*
 .service('playListDetailService',function ($http) {
   this.getPlaylistDetail = function (opt) {
     $http({
@@ -38,4 +36,3 @@ angular.module('myApp.service',[])
     })
   }
 })
-*/
