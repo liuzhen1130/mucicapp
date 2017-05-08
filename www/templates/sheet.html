@@ -1,4 +1,4 @@
-<ion-view view-title="歌单">
+<ion-view view-title="歌单" animation="no-animation">
   <ion-header-bar class=" green-bg item-input-inset">
     <button class="button button-icon icon ion-ios-mic-outline " style="color: #fff;"></button>
     <label class="item-input-wrapper">
@@ -13,7 +13,7 @@
     <a href="#/station" class="tab-item">主播电台</a>
     <a href="#/ranking" class="tab-item">排行榜</a>
   </div>
-  <ion-content class="padding no-header" style="padding:0;top:84px !important;bottom: 60px !important;">
+  <ion-content class="padding no-header" style="padding:0;top:104px !important;bottom: 60px !important;">
     <div class="sub-img">
       <img src="img/adam.jpg">
     </div>
@@ -21,14 +21,14 @@
       <a class="button button-outline button-positive"  href="#/sheetClassify">全部歌单</a> <span>欧美&nbsp;|&nbsp;民谣&nbsp;|&nbsp;古风</span>
     </div>
     <div class="sheet-main">
-      <div class="all-sheet" >
-        <div class="all-col" ui-sref="sheetListDetail" ng-repeat="item in sheetList">
-          <div ng-click="">
-            <img ng-src="{{item.imgUrl}}">
-            <span class="sheet-author" ng-bind="item.author"></span>
-            <span class="sheet-total" ng-bind="item.playNum"></span>
-          </div>
-          <p ng-bind="item.desc"></p>
+      <div class="music-row" >
+        <div class="music-col-2" ng-repeat="item in sheetList">
+          <span class="music-col-span music-shadow"  ui-sref="sheetListDetail({playListId:item.id})">
+            <img class="music-col-titleImg" ng-src="{{item.coverImgUrl}}">
+            <span class="sheet-author" ><i class="icon ion-ios-person-outline "></i><span ng-bind="item.creator.nickname"></span></span>
+            <span class="sheet-total"><i class="icon ion-ios-heart-outline"></i><span  ng-bind="item.playCount | formatNum"></span></span>
+          </span>
+          <p class="music-col-p" ng-bind="item.name"></p>
         </div>
       </div>
     </div>

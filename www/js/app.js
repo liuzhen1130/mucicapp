@@ -8,8 +8,8 @@
 angular.module('myApp', ['ionic', 'myApp.controllers','myApp.service'])
 
 
-  .config(function ($stateProvider, $urlRouterProvider) {
-
+  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+    $ionicConfigProvider.views.transition('none');
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
@@ -40,7 +40,8 @@ angular.module('myApp', ['ionic', 'myApp.controllers','myApp.service'])
     .state('sheetListDetail',{
       url:'/sheetListDetail',
       templateUrl:'templates/sheetListDetail.html',
-      controller:'sheetListDetailCtr'
+      controller:'sheetListDetailCtr',
+      params:{playListId:null}
     })
 
     //发现音乐 -- 主播电台
@@ -85,7 +86,13 @@ angular.module('myApp', ['ionic', 'myApp.controllers','myApp.service'])
       templateUrl:'templates/hotSong.html',
       controller:'hotSongCtr'
     })
-
+    //播放歌曲页面
+    .state('playPage',{
+      url:'/playPage',
+      templateUrl:'templates/playPage.html',
+      controller:'playPageCtr',
+      params:{songId:null}
+    })
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/recommend');
 

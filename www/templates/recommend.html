@@ -1,4 +1,4 @@
-<ion-view view-title="个性推荐" >
+<ion-view view-title="个性推荐" animation="no-animation">
   <ion-header-bar class=" green-bg item-input-inset">
     <button class="button button-icon icon ion-ios-mic-outline " style="color: #fff;"></button>
     <label class="item-input-wrapper">
@@ -13,21 +13,11 @@
     <a href="#/station" class="tab-item">主播电台</a>
     <a href="#/ranking" class="tab-item">排行榜</a>
   </div>
-  <ion-content class="has-header has-tabs" style="top:84px !important;bottom: 60px !important;">
-    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="true">
-      <ion-slide >
-        <div class="slid-box">
-          <img src="http://p3.music.126.net/09hujI6_LSJD6DWK02qXwQ==/18964376555989719.jpg"/>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="slid-box">
-          <img src="http://p4.music.126.net/x9KxmTxNEXHQJS9n-oWRLw==/18623527953173527.jpg" />
-        </div>
-      </ion-slide>
-      <ion-slide >
-        <div class="slid-box">
-          <img src="http://p3.music.126.net/qADzamZDC3c5whBibC_rAQ==/18906102439712983.jpg"/>
+  <ion-content class="has-header has-tabs" style="top:104px !important;bottom: 60px !important;">
+    <ion-slide-box   does-continue="true" auto-play="true" slide-interval="3000" show-pager="true"  delegate-handle="slideboximgs" >
+      <ion-slide ng-repeat="item in bannerImg">
+        <div class="slid-box" >
+          <img ng-src="{{item.pic}}"/>
         </div>
       </ion-slide>
     </ion-slide-box>
@@ -47,64 +37,40 @@
       </a>
     </div>
     <div class="main">
+      <!--推荐歌单-->
       <div class="custom-list">
         <div class="custom-list-title">
           <span ><a href="#/sheet">推荐歌单&nbsp;></a></span>
         </div>
-        <div class="sheet-main">
-            <div class="recommend-col" >
-              <div>
-                <img src="img/ionic.png" />
-                <span class="sheet-author" >ddd</span>
-                <span class="sheet-total" >ddd</span>
-              </div>
-              <p>ggglkjdlak</p>
+        <div class="music-row">
+            <div class="music-col-3" ng-repeat="item in personalized">
+              <span class="music-col-span" ui-sref="sheetListDetail({playListId:item.id})">
+                <img class="music-col-titleImg" ng-src="{{item.picUrl}}" />
+                <span class="sheet-total" ng-bind="item.playCount | formatNum" ></span>
+                <p class="music-col-p" ng-bind="item.name"></p>
+              </span>
             </div>
-           <div class="recommend-col" >
-            <div>
-              <img src="img/ionic.png" />
-              <span class="sheet-author" >ddd</span>
-              <span class="sheet-total" >ddd</span>
-            </div>
-            <p>ggglkjdlak</p>
-          </div>
-          <div class="recommend-col" >
-            <div>
-              <img src="img/ionic.png" />
-              <span class="sheet-author" >ddd</span>
-              <span class="sheet-total" >ddd</span>
-            </div>
-            <p>ggglkjdlak</p>
-          </div>
-          <div class="recommend-col" >
-            <div>
-              <img src="img/ionic.png" />
-              <span class="sheet-author" >ddd</span>
-              <span class="sheet-total" >ddd</span>
-            </div>
-            <p>ggglkjdlak</p>
-          </div>
-          <div class="recommend-col" >
-            <div>
-              <img src="img/ionic.png" />
-              <span class="sheet-author" >ddd</span>
-              <span class="sheet-total" >ddd</span>
-            </div>
-            <p>ggglkjdlak</p>
-          </div>
-          <div class="recommend-col" >
-            <div>
-              <img src="img/ionic.png" />
-              <span class="sheet-author" >ddd</span>
-              <span class="sheet-total" >ddd</span>
-            </div>
-            <p>ggglkjdlak</p>
-          </div>
         </div>
       </div>
+      <!--独家放送-->
       <div class="custom-list">
         <div class="custom-list-title">
-          <span ><a  href="#/tab/discover/tabs2/sheet">推荐歌单&nbsp;></a></span>
+          <span ><a  href="#/tab/discover/tabs2/sheet">独家放送&nbsp;></a></span>
+        </div>
+
+        <div class="music-row">
+          <div class="music-col-2">
+            <img class="music-col-titleImg" ng-src="{{privateContent[1].sPicUrl}}" />
+            <p class="music-col-p" ng-bind="privateContent[1].name"></p>
+          </div>
+          <div class="music-col-2">
+            <img class="music-col-titleImg" ng-src="{{privateContent[2].sPicUrl}}" />
+            <p class="music-col-p" ng-bind="privateContent[2].name"></p>
+          </div>
+          <div class="music-col-1">
+            <img class="music-col-titleImg" ng-src="{{privateContent[0].sPicUrl}}" />
+            <p class="music-col-p" ng-bind="privateContent[0].name"></p>
+          </div>
         </div>
       </div>
     </div>

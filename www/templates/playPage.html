@@ -1,0 +1,63 @@
+<!--
+ Created by liuzhen
+ on 2017/5/6 下午6:21
+-->
+<ion-view view-title="播放" >
+  <div class="playBlurBg" style="background-image:url(img/black-blur.png), url({{songDetail[0].al.picUrl}});">
+
+  </div>
+  <ion-header-bar class="bar playBar">
+    <a class="left-but" ng-click="goSheetDetail();"><i class="icon ion-ios-arrow-left"></i></a>
+    <div class="playTitle">
+      <h6 ng-bind="songDetail[0].name"></h6>
+      <p>
+        <span ng-repeat=" item in songDetail[0].ar">
+         <i ng-bind="item.name"></i><i ng-if="$index<songDetail[0].ar.length-1 && $index>=0">/</i>
+        </span>
+      </p>
+    </div>
+    <a class="right-but"> <i class="icon ion-ios-redo-outline"></i></a>
+  </ion-header-bar>
+  <ion-content class="has-header">
+
+    <div class="playMain">
+      <div class="play-on-off">
+        <img src="img/play-on-off.png" ng-style="onOff"/>
+      </div>
+      <div class="playMain-outBorder">
+        <div ng-class="isOn">
+          <img ng-src="{{songDetail[0].al.picUrl}}"/>
+        </div>
+      </div>
+      <!--<my-player></my-player>-->
+      <audio src="{{songUrl}}" style="display: none;" id="source" preload="none" controls="controls">
+        <!--<source  type="audio/mp3"/>-->
+      </audio>
+    </div>
+  </ion-content>
+  <div class="playBottom">
+    <div class="subTool">
+      <a><i class="icon ion-ios-heart-outline"></i></a>
+      <a><i class="icon ion-ios-cloud-download-outline"></i></a>
+      <a><i class="icon ion-ios-albums-outline"></i></a>
+      <a><i class="icon ion-android-more-vertical"></i></a>
+    </div>
+    <div class="play-progress">
+      <div class="start-time" >{{currentTime}}</div>
+      <div class="progress">
+        <div class="progress-green" ng-style="progress">
+          <span class="drag" on-touch="onTouch($event)" on-drag-end="onDragEnd($event)" on-drag="onDrag($event)" ><a></a></span>
+        </div>
+      </div>
+      <div class="end-time" ng-bind="songDetail[0].dt | formatTime"></div>
+    </div>
+    <div class="playTool">
+      <a><span><i class="icon ion-ios-shuffle"></i></span></a>
+      <a class="prev-but"><span><i class="icon ion-ios-skipbackward-outline"></i></span></a>
+      <a class="play-but" ng-click="playOnOff();"><span><i class="icon " ng-class="isplay"></i></span></a>
+      <a class="next-but"><span><i class="icon ion-ios-skipforward-outline"></i></span></a>
+      <a><span><i class="icon ion-ios-list-outline"></i></span></a>
+    </div>
+  </div>
+
+</ion-view>

@@ -10,10 +10,9 @@
 
     <!--语种-->
       <div class="sheet-list" ng-repeat="item in categoryList">
-        <span class="sheet-list-title" ng-bind="item.categoryName"></span>
+        <span class="sheet-list-title" ng-bind="item.name"></span>
         <div ng-repeat="i in item.childList">
-          <span ui-sref="sheet({name:i.categoryName})" ng-bind="i.categoryName | replaceAmp" ng-class="{'sort-hot': i.categoryName == '华语'||i.categoryName == '流行'||i.categoryName == '摇滚'||i.categoryName == '乡村'||i.categoryName == '古风'
-          ||i.categoryName == '学习'||i.categoryName == '怀旧'||i.categoryName == '影视原声'||i.categoryName == 'ACG'}"></span>
+          <span ui-sref="sheet({name:i.name})" ng-bind="i.name" ng-class="{'sort-hot': i.hot}"></span>
         </div>
       </div>
   </ion-content>

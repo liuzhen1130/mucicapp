@@ -1,6 +1,6 @@
 <ion-view view-title="歌单详情"  >
 
-  <div class="blur-bg" style="background-image:url({{sheetDetail.coverImgUrll}}); ">
+  <div class="blur-bg" style="background-image:url({{sheetDetail.picUrl}}); ">
   </div>
     <ion-header-bar class="bar" style="background: none">
       <a ng-click="goSheetPage()"><</a>
@@ -10,30 +10,32 @@
     <ion-content  class="has-header" style="bottom: 60px !important;background: none">
       <div class="Detail" >
         <div class="Detail-text">
-          <img class="sheet-img" ng-src="{{sheetDetail.coverImgUrll}}">
-          <h4 ng-bind="sheetDetail.playListName"></h4>
-          <p><img src="{{sheetDetail.avatarUrl}}"><span ng-bind="sheetDetail.author"></span></p>
+          <img class="sheet-img" ng-src="{{sheetDetail.picUrl}}">
+          <h4 ng-bind="sheetDetail.name"></h4>
+          <p><img src="{{sheetDetail.creator.avatarUrl}}"><span ng-bind="sheetDetail.creator.nickname"></span></p>
         </div>
         <div class="Detail-but">
-          <a><i class="icon ion-ios-plus-outline"></i><p ng-bind="sheetDetail.subscribedCount"></p></a>
-          <a><i class="icon ion-ios-paper-outline"></i><p ng-bind="sheetDetail.commentCount"></p></a>
-          <a><i class="icon ion-ios-redo-outline" ></i><p ng-bind="sheetDetail.shareCount"></p></a>
+          <a><i class="icon ion-ios-plus-outline"></i><p ng-bind="sheetDetail.subscribedCount | formatNum"></p></a>
+          <a><i class="icon ion-ios-paper-outline"></i><p ng-bind="sheetDetail.commentCount | formatNum"></p></a>
+          <a><i class="icon ion-ios-redo-outline" ></i><p ng-bind="sheetDetail.shareCount | formatNum"></p></a>
           <a><i class="icon ion-ios-cloud-download-outline"></i><p>下载</p></a>
         </div>
       </div>
       <div class="playList">
         <div class="playList-title" >
-           <i class="icon ion-android-arrow-dropright-circle"></i> <span>播放全部</span>(共40首)
+           <i class="icon ion-android-arrow-dropright-circle"></i> <span>播放全部</span>(共<a ng-bind="sheetDetail.trackCount"></a>首)
         </div>
         <ul >
-          <li ng-repeat="item in sheetDetail.songDetails">
+          <li ng-repeat="item in sheetDetail.tracks">
             <span class="num">{{$index + 1}}</span>
             <div class="playList-detail">
-              <span ng-bind="item.name"></span>
-              <p>
-                <span ng-repeat="i in item.singer"><i ng-bind="i"></i><i ng-if="$index<item.singer.length-1 && $index>=0">/</i></span>
-                -<span ng-bind="item.albumName"></span>
-              </p>
+              <div ui-sref="playPage({songId:item.id})">
+                <span ng-bind="item.name" ></span>
+                <p >
+                  <span ng-repeat="i in item.ar"><i ng-bind="i.name"></i><i ng-if="$index<item.ar.length-1 && $index>=0">/</i></span>
+                  -<span ng-bind="item.al.name"></span>
+                </p>
+              </div>
               <div class="tool-but"><i class="icon ion-ios-more"></i></div>
             </div>
           </li>
